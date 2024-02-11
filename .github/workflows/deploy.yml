@@ -28,7 +28,7 @@ jobs:
 
       - name: build
         env:
-          BASE_PATH: process.env.NODE_ENV === 'production' ? '/taomis.github.io' : '',
+          BASE_PATH: '/taomis.github.io'
         run: |
           npm run build
 
