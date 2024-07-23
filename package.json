@@ -8,7 +8,7 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-        "deploy": "npm run build && npx gh-pages -d build -t true"
+		"deploy": "npm run build && npx gh-pages -d build -t true"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
@@ -22,5 +22,16 @@
 		"typescript": "^5.0.0",
 		"vite": "^5.0.3"
 	},
-	"type": "module"
+	"type": "module",
+	"exports": {
+		"./package.json": "./package.json",
+		".": {
+			"types": "./package/index.d.ts",
+			"svelte": "./package/index.js",
+			"default": "./package/index.js"
+		}
+	},
+	"files": [
+		"package"
+	]
 }
