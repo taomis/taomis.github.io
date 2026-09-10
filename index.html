@@ -1,10 +1,34 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>taomis</title>
     <style>
+      :root {
+        --fg: #1a1a1a;
+        --fg-mid: #555;
+        --fg-faint: #999;
+        --bg: #eee1bd;
+        --rule: #ccc;
+        --accent: #333;
+        --link: #1a1a1a;
+        --link-hover: #555;
+        --measure: 64ch;
+        --gutter: 1.5rem;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --fg: #d8d2bd;
+          --fg-mid: #aaa79d;
+          --fg-faint: #7f827c;
+          --bg: #1b2d30;
+          --rule: #3a4a4c;
+          --accent: #ffd166;
+          --link: #e6bd61;
+          --link-hover: #ffd166;
+        }
+      }
       *,
       *::before,
       *::after {
@@ -14,17 +38,63 @@
       }
 
       body {
-        font-family: "Times New Roman", Times, serif;
-        line-height: 1.7;
-        padding: 3rem 1.5rem;
-        color: mintcream;
-        background-color: #1b2d30;
-        display: flex;
-        justify-content: center;
+        font-family: Georgia, serif;
+        font-size: 1rem;
+        line-height: 1.75;
+        color: var(--fg);
+        background: var(--bg);
+        max-width: var(--measure);
+        margin: 0 auto;
+        padding: 4rem var(--gutter) 3rem;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        color: var(--accent);
+      }
+
+      section {
+        margin-bottom: 2rem;
+      }
+
+      a {
+        color: var(--link);
+      }
+      a:hover {
+        color: var(--link-hover);
+      }
+
+      blockquote {
+        border-left: 2px solid var(--accent);
+        padding-left: 1em;
+        margin: 2rem 0;
+        font-style: italic;
+        color: var(--fg-mid);
+      }
+      blockquote cite {
+        display: block;
+        font-style: normal;
+        font-size: 0.85rem;
+        margin-top: 0.4rem;
+        color: var(--fg-faint);
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid var(--rule);
+        margin: 2rem 0;
       }
 
       figure {
         max-width: 280px;
+        margin: 0 auto;
       }
 
       figure img {
@@ -39,14 +109,55 @@
         text-align: center;
         margin-top: 0.3rem;
       }
+
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+      }
+      .badges img {
+        width: 88px;
+        height: 31px;
+        image-rendering: pixelated;
+      }
+
+      footer {
+        margin-top: 3rem;
+        font-size: 0.8rem;
+        color: var(--fg-faint);
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 2.5rem 1rem 2rem;
+        }
+        h1 {
+          font-size: 1.35rem;
+        }
+        .badges {
+          justify-content: center;
+        }
+      }
     </style>
   </head>
   <body>
-    <div class="gallery">
-      <figure>
-        <img src="static/bird.png" alt="drawn image of a fat bird" />
-        <figcaption>relatable</figcaption>
-      </figure>
-    </div>
+    <main>
+      <div class="gallery">
+        <figure>
+          <img src="static/bird.png" alt="drawn image of a fat bird" />
+          <figcaption>relatable</figcaption>
+        </figure>
+      </div>
+
+      <footer>
+        <div class="badges">
+          <a href="https://soliloquy.dev/"
+            ><img src="/static/88x31/temp.png" alt=":)"
+          /></a>
+        </div>
+        <p style="margin-top: 1rem">:)</p>
+      </footer>
+    </main>
   </body>
 </html>
